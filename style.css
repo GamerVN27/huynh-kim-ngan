@@ -1,0 +1,238 @@
+/* --- BIẾN CSS (CUSTOM PROPERTIES) --- */
+/* Giúp quản lý màu sắc dễ dàng hơn */
+:root {
+    --color-primary: #007bff; /* Xanh hy vọng/Biển */
+    --color-secondary: #ff6f00; /* Cam Ấm/Mặt trời */
+    --color-accent: #17a2b8; /* Xanh ngọc lam/Bầu trời */
+    --color-background-light: #f7f9fc;
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --shadow-base: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    /* Sử dụng biến cho màu nền */
+    background-color: var(--color-background-light); 
+    transition: background-color 0.3s ease; /* Thêm chuyển động nhẹ nhàng cho nền */
+}
+
+/* --- HEADER --- */
+header {
+    background-color: var(--color-primary); /* Màu xanh hy vọng */
+    color: var(--color-text-light);
+    padding: 60px 20px 40px; /* Tăng padding trên để có cảm giác rộng rãi hơn */
+    text-align: center;
+    /* Bóng đổ mạnh hơn để tạo chiều sâu */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25); 
+    position: relative; /* Chuẩn bị cho các hiệu ứng chi tiết */
+    overflow: hidden; /* Đảm bảo không có gì tràn ra ngoài */
+}
+
+header h1 {
+    font-size: 3em; /* Tăng kích thước */
+    margin-bottom: 8px;
+    letter-spacing: 1px; /* Tăng khoảng cách chữ nhẹ */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+header p {
+    font-style: italic;
+    font-size: 1.2em; /* Tăng kích thước */
+    opacity: 0.9; /* Giảm độ mờ nhẹ */
+}
+
+/* --- MAIN CONTENT & LAYOUT --- */
+main {
+    max-width: 1100px; /* Tăng chiều rộng tối đa */
+    margin: 40px auto; /* Tăng margin */
+    padding: 0 30px;
+}
+
+section {
+    background-color: var(--color-text-light);
+    padding: 35px; /* Tăng padding */
+    margin-bottom: 35px; /* Tăng margin */
+    border-radius: 12px; /* Tăng bo tròn */
+    /* Sử dụng bóng đổ lớn hơn, tạo hiệu ứng nổi bật (pop-out) */
+    box-shadow: var(--shadow-lg); 
+    /* Thêm hiệu ứng chuyển động khi hover (tùy chọn) */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hiệu ứng khi di chuột qua section (nổi lên một chút) */
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    color: var(--color-secondary); /* Màu cam ấm áp */
+    /* Thay đổi border-bottom thành màu nhấn mạnh (accent color) */
+    border-bottom: 3px solid var(--color-accent);
+    padding-bottom: 15px; /* Tăng padding */
+    margin-bottom: 25px;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+/* --- BOOK INFO SECTION (Ảnh + Tóm tắt) --- */
+.book-info {
+    display: flex;
+    gap: 40px; /* Tăng khoảng cách */
+    align-items: flex-start;
+}
+
+.cover-image {
+    /* Đảm bảo ảnh cover không bị ép */
+    flex-shrink: 0; 
+}
+
+.cover-image img {
+    width: 280px; /* Tăng kích thước ảnh */
+    height: auto;
+    border: 7px solid var(--color-text-light); /* Tăng viền trắng */
+    border-radius: 10px; /* Tăng bo tròn */
+    /* Bóng đổ nổi bật hơn cho ảnh bìa */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.5s ease;
+}
+
+/* Hiệu ứng khi di chuột qua ảnh (phóng to nhẹ) */
+.cover-image img:hover {
+    transform: scale(1.02) rotate(-1deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.summary h2 {
+    color: var(--color-primary); /* Màu xanh lam */
+    border-bottom-color: var(--color-secondary);
+}
+
+.summary p {
+    text-align: justify;
+    font-size: 1.05em;
+}
+
+/* --- QUOTATION BLOCK --- */
+.quotation blockquote {
+    font-size: 1.4em; /* Tăng kích thước */
+    font-style: italic;
+    color: #4a4a4a;
+    border-left: 6px solid var(--color-primary); /* Tăng độ dày viền */
+    padding: 25px 25px 25px 30px; /* Tăng padding */
+    margin: 30px 0;
+    /* Sử dụng nền màu trắng sữa nhẹ nhàng, có bóng đổ bên trong */
+    background-color: #f0f8ff; 
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Bóng đổ bên trong */
+}
+
+.quotation blockquote footer {
+    display: block;
+    margin-top: 15px;
+    text-align: right;
+    font-size: 0.9em;
+    color: #6c757d; /* Màu xám đậm hơn */
+    font-weight: 500;
+}
+
+/* --- FUN FACTS --- */
+.fun-facts ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.fun-facts li {
+    background: #fffae6; /* Màu vàng nhạt nhẹ hơn */
+    margin-bottom: 12px;
+    padding: 15px 20px; /* Tăng padding */
+    border-radius: 8px; /* Tăng bo tròn */
+    border-left: 5px solid var(--color-secondary); /* Tăng độ dày viền */
+    /* Bóng đổ tinh tế cho các mục */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); 
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+/* Hiệu ứng khi di chuột qua mục Fun Fact */
+.fun-facts li:hover {
+    background: #fff3cd; /* Làm sáng màu nền */
+    transform: translateX(5px); /* Trượt nhẹ sang phải */
+}
+
+.fun-facts li strong {
+    color: #d84315;
+    font-weight: 700;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 30px 20px; /* Tăng padding */
+    background-color: #212529; /* Màu tối hơn cho độ tương phản tốt hơn */
+    color: #ccc;
+    margin-top: 50px; /* Tăng margin trên */
+    font-size: 0.95em;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: #ffc107; /* Màu vàng nổi bật */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--color-text-light);
+    text-decoration: underline;
+}
+
+/* --- MEDIA QUERIES cho thiết bị nhỏ --- */
+@media (max-width: 992px) {
+    main {
+        padding: 0 15px;
+    }
+
+    section {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .book-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .cover-image img {
+        width: 200px;
+    }
+
+    section {
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: var(--shadow-base); /* Giảm bóng đổ trên thiết bị di động */
+    }
+
+    .quotation blockquote {
+        font-size: 1.2em;
+        padding: 15px 15px 15px 20px;
+    }
+}
